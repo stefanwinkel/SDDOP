@@ -1,6 +1,9 @@
 # CLAIR_DEMO: Securing The Docker DevOps Pipeline 
 
 ### Docker Vulernability Scanning with CoreOS Clair
+```bash
+cd /d c:\script\sddop
+```
 
 #### 1. Create Docker Network and a Volume
 ```bash
@@ -16,17 +19,18 @@ docker volume create --name clair-postgres
 ```
 
 #### 3. Configure the clair service
+```bash
 curl --silent https://raw.githubusercontent.com/nordri/config-files/master/clair/config-clair.yaml | sed "s/POSTGRES_NAME/clair-postgres/" > config.yaml
-
+```
 
 ### 4. Launch the Clair Container  
 ```bash
-docker run --detach --name clair --net ci --publish 6060:6060 --publish 6061:6061 --volume c:\script\clair\config.yaml:/config/config.yaml quay.io/coreos/clair:latest -config /config/config.yaml
+docker run --detach --name clair --net ci --publish 6060:6060 --publish 6061:6061 --volume c:\script\sddop\config.yaml:/config/config.yaml quay.io/coreos/clair:latest -config /config/config.yaml
 ```
 
 #### 5. Pull down a few sample Dockers Images to be scanned
 ```bash 
-docker pull debian:jessie && docker pull 
+docker pull debian:jessie &&  docker pull docker/docker-bench-security && docker pull nextcloud:apache
 ```
 
 #### 6. Start the Clair Scanner
@@ -42,13 +46,14 @@ export IP=$(ip r |tail -n1 |awk '{ print $9 }')
 /clair-scanner --ip ${IP} --clair=http://clair:6060 debian:jessie
 ```
 
-### DevOps Pipeline Customization:  Clair Threshold
+### 8. DevOps Pipeline Customization:  Clair Threshold
 Inside the clair container:
 ```
 /clair-scanner --ip ${IP} --threshold "Critical" --clair=http://clair:6060 debian:jessie
 ```
 
-#### A few more Scanning Examples: MariaDB, NextCloud
+
+#### 9. A few more samples: MariaDB, NextCloud
 ```bash
 /clair-scanner --ip ${IP} --threshold "Critical" --clair=http://clair:6060 nextcloud:apache
 /clair-scanner --ip ${IP} --threshold "Critical" --clair=http://clair:6060 mariadb
