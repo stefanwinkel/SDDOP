@@ -1,16 +1,22 @@
-# SDDOP_2 - Demo 2: Docker Clair
+# SDDOP - Demo 2: Docker Clair
 
-SecureDockerDevOpsPipeline (SSDOP) is a series of demos/walkthroughs how to configure tesing and usage of Docker in an automated environment. 
+SecureDockerDevOpsPipeline (SSDOP) is a series of demos/walkthroughs on how to build and use Docker Containers in a safe, secure environment. 
 
-Docker these days is everywhere. From single Rasberry PIs, to Pods in Kubernetes Clusters in large corporate clouds. The amount of malware/vulernability discovered with Docker also keeps on increasing at an alarming rate, with the latest Docker hitting the news earlier this week. 
+While this series mostly focuses on DevOps automation, many of the Docker concepts and items used/explained here, also apply to any container and orchestration services at large, besides Docker and Kubernetes (K8S).
 
-Usually we see Docker on Linux distributions, but in this demo we are using a plain windows10 VM with Docker with the OpenSource Clair Vulnerability Scanner for CoreOS to scan Docker images for well known vulneabilties. We then scan a few well known images for vulnerabilities, including the latest NextCloud Docker image. We start from a plain Windows VM, and we see how can get quickly off the ground with just a few lines of Powershell. We launch CommandoVM framework from FireEye which includes Docker and various attacking tools are ported to run on Docker/Windows. It even includes a full Kali install !
+Docker containers these days are everywhere. From single Rasberry PIs to K8S Clusters as part of large corporate clouds. The amount of malware/vulernability discovered with Docker keeps on increasing at alarming speeds. The latest Docker malware, Kinsing, was just discovered earlier this week (03/05/20) and had been running for months! With modern cloud development, like statelesss services and containers running everywhere, due to contineously changing production environments as as result of orchestration services like K8S where containers might live for just a few seconds, it makes it increasing complex for organizations / blue teams to monitor and track vulnerabilities and exploits. 
 
-As attackers/red teams are starting to beef up their game on Docker, it is even more important for Blue teams to start making sure that their Docker Images are free of malcious code.
+As attackers/red teams are starting to beef up their game on Docker with distributions like CommandoVM and Kali, it is now even more important for Blue teams to start making sure that their Docker environments are being monitored correctly and are safe from these type of issues. 
+
+## Demo Intro
+
+Usually we see Docker on Linux distributions, but in this demo we are using a plain windows10 VM with Docker with the OpenSource Clair Vulnerability Scanner for CoreOS to scan Docker images for well known vulneabilties. We scan a few well known Docker images for vulnerabilities, including the latest NextCloud Docker image. We start from a plain Windows VM that has our SDDOP package installed and have the Clair Scanner up with just a few lines of Powershell. 
 
 ## SSDOP Demo 2: Running Clair VM inside Docker container to Scan other Docker images
 
-**Time to run: Approx 10min**
+- Time to run: Approx 10min
+- Description: A vulnerabilty scan with the FOSS tool Clair, from CoreOS, shows that even popular Docker Images like NextCloud contain well known vulnerabilities.
+- Pre-reqs: SSDOP package installed on Win10, or any other OS with latest version of Docker. Network access to DockerHub required
 
 ### Docker Vulernability Scanning with CoreOS Clair
 ```bash
@@ -58,7 +64,7 @@ export IP=$(ip r |tail -n1 |awk '{ print $9 }')
 /clair-scanner --ip ${IP} --clair=http://clair:6060 debian:jessie
 ```
 
-### 8. DevOps Pipeline Customization:  Clair Threshold
+#### 8. DevOps Pipeline Customization:  Clair Threshold
 Inside the clair container:
 ```
 /clair-scanner --ip ${IP} --threshold "Critical" --clair=http://clair:6060 debian:jessie
