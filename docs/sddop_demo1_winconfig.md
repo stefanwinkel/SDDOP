@@ -1,6 +1,6 @@
 # SDDOP - Demo 1: Winconfig
 
-SecureDockerDevOpsPipeline (SSDOP) is a series of demos/walkthroughs on how to build and use Docker Containers in a safe, secure environment. 
+SecureDockerDevOpsPipeline (SDDOP) is a series of demos/walkthroughs on how to build and use Docker Containers in a safe, secure environment. 
 
 While this series mostly focuses on DevOps automation, many of the Docker concepts and items used/explained here, also apply to any container and orchestration services at large, besides Docker and Kubernetes (K8S).
 
@@ -12,13 +12,13 @@ As attackers/red teams are starting to beef up their game on Docker with distrib
 
 We start from a plain Windows10 VM, and we see how can get quickly off the ground with just a few lines of Powershell. We launch CommandoVM framework from FireEye which includes Docker and various attacking tools are ported to run on Docker/Windows. It even includes a full Kali install. Within a few minutes we have a full working Windows10 Docker environment.
 
-## SSDOP Demo 1: Install Docker and various SecurityTools onto Windows10-64bit 
+## SDDOP Demo 1: Install Docker and various SecurityTools onto Windows10-64bit 
 
 - Time to run: Approx 20min
 - Description: Shows how we (and attackers) can quickly can spin up Docker containers in seconds, even from a plain Win10 environment. 
 - Pre-reqs: Plain Win10 64bit OS, with Powershell 5.1 (TLS1.2) enabled. Network access recommended.
 
-## SSDOP Demo 1: Install Docker and other Tools
+## SDDOP Demo 1: Install Docker and other Tools
 
 **Time to run: Approx 20min**
 
@@ -41,7 +41,7 @@ md c:\script\sddop && cd c:\script\sddop && powershell.exe -exec bypass -C "iex 
 powershell -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (New-Object System.Net.WebClient).DownloadFile('https://github.com/fireeye/commando-vm/archive/master.zip', 'C:\script\master.zip');Expand-Archive -Path c:\script\master.zip -DestinationPath c:\script\sddop\Commando -Force "
 ```
 
-### 3. Download SSDOP (SecureDockerDevOpsPipeline)
+### 3. Download SDDOP (SecureDockerDevOpsPipeline)
 
 ```bash
 powershell -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (New-Object System.Net.WebClient).DownloadFile('https://github.com/stefanwinkel/sddp/archive/master.zip', 'C:\script\master2.zip');$ProgressPreference='SilentlyContinue';Expand-Archive -Path c:\script\master2.zip -DestinationPath c:\script\sddop -Force " <NUL
