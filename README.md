@@ -4,7 +4,7 @@
 
 ### SDDOP Prerequisites
 
-Plain Vanilla Window10 with Powershell (& TLS1.2). 
+Plain Vanilla Window10 64bit with Powershell v5.1 (& TLS1.2). 
 
 #### Demo use
 Windows Education Preview, February 2020 build (build 19041.84)
@@ -30,7 +30,7 @@ powershell -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.Security
 ### 4. Start the installation
 
 ```bash 
-cd c:\script\sddop\commando && powershell.exe -exec bypass .\install.ps1 -profile_file ..\ssdop_profile.json -nochecks 1 -password sddop
+cd c:\script\sddop\commando\commando-vm-master && powershell.exe -exec bypass .\install.ps1 -profile_file ..\..\SDDOP-master\sddop.json -nochecks 1 
 ```
 
 ### References

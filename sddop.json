@@ -16,28 +16,14 @@
             "args": "--params \'/GitOnlyOnPath /NoShellIntegration\'"
         },
         {"name": "autoit.fireeye"},
-        {"name": "cyberchef.flare"},
         {"name": "firefox.fireeye"},
-        {"name": "vscode.fireeye", "args":"--parameters /NoDesktopIcon --paramsglobal"},
         {"name": "python3"},
         {"name": "golang"},
-        {
-            "name": "notepadplusplus",
-            "args": "--x86"
-        },
-        {"name": "notepadplusplus-textfx.fireeye"},
-        {"name": "dep"},
         {"name": "sysinternals.fireeye"},
         {"name": "SublimeText3.fireeye"},
-        {"name": "ScreenToGif.fireeye"},
         {"name": "7zip"},
-        {"name": "telnet.fireeye"},
         {"name": "putty.fireeye"},
-        {"name": "processhacker.flare"},
         {"name": "unxUtils"},
-        {"name": "virusstotaluploader"},
-        {"name": "winscp.fireeye"},
-        {"name": "wireshark.fireeye"},
         {"name": "docker.fireeye"},
         
         {"name": "docker-machine"},
