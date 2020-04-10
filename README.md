@@ -8,6 +8,7 @@ Docker containers these days are everywhere. From single Rasberry PIs to K8S Clu
 
 As attackers/red teams are starting to beef up their game on Docker with distributions like CommandoVM and Kali, it is now even more important for Blue teams to start making sure that their Docker environments are being monitored correctly and are safe from these type of issues. 
 
+
 ## SDDOP Demo 1: Install Docker and various SecurityTools onto Windows10-64bit 
 
 - Time to run: Approx 20min

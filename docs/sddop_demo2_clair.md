@@ -18,6 +18,11 @@ Usually we see Docker on Linux distributions, but in this demo we are using a pl
 - Description: A vulnerabilty scan with the FOSS tool Clair, from CoreOS, shows that even popular Docker Images like NextCloud contain well known vulnerabilities.
 - Pre-reqs: SDDOP package installed on Win10, or any other OS with latest version of Docker. Network access to DockerHub required
 
+## Demo Steps
+
+[![./jpg/docker_headlines.jpg](http://img.youtube.com/vi/E4ytRIXr4Cc/0.jpg)](https://www.youtube.com/watch?v=E4ytRIXr4Cc "SDDOP Demo2 ")
+
+
 ### Docker Vulernability Scanning with CoreOS Clair
 ```bash
 cd /d c:\script\sddop
@@ -41,7 +46,7 @@ docker volume create --name clair-postgres
 curl --silent https://raw.githubusercontent.com/nordri/config-files/master/clair/config-clair.yaml | sed "s/POSTGRES_NAME/clair-postgres/" > config.yaml
 ```
 
-### 4. Launch the Clair Container  
+#### 4. Launch the Clair Container  
 ```bash
 docker run --detach --name clair --net ci --publish 6060:6060 --publish 6061:6061 --volume c:\script\sddop\config.yaml:/config/config.yaml quay.io/coreos/clair:latest -config /config/config.yaml
 ```

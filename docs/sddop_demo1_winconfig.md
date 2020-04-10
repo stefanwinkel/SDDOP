@@ -17,17 +17,11 @@ We start from a plain Windows10 VM, and we see how can get quickly off the groun
 - Time to run: Approx 20min
 - Description: Shows how we (and attackers) can quickly can spin up Docker containers in seconds, even from a plain Win10 environment. 
 - Pre-reqs: Plain Win10 64bit OS, with Powershell 5.1 (TLS1.2) enabled. Network access recommended.
+- Used in demo: Win10 Education Preview, February 2020 build (build 19041.84)
 
-## SDDOP Demo 1: Install Docker and other Tools
+## Demo Steps
 
-**Time to run: Approx 20min**
-
-### SDDOP Prerequisites
-
-Plain Vanilla Window10 64bit with Powershell v5.1 (& TLS1.2). 
-
-#### SDDOP Demo details 
-Win10 Education Preview, February 2020 build (build 19041.84)
+[![./jpg/docker_headlines.jpg](http://img.youtube.com/vi/VQM_ddsLSbw/0.jpg)](https://www.youtube.com/watch?v=VQM_ddsLSbw "SDDOP Demo1")
 
 ### 1. Install BoxStarter, through elevated cmd prompt 
 
