@@ -8,19 +8,40 @@ Usually we see Docker on Linux distributions, but in this demo we are using a pl
 
 As attackers/red teams are starting to beef up their game on Docker, it is even more important for Blue teams to start making sure that their Docker Images are free of malcious code.
 
-## SSDOP Demo 1: Install Docker and various SecurityTools onto Windows
+## SSDOP Demo 1: Install Docker and other Tools
 
-- Time to run: Approx 20min
-- [Instructions](./docs/sddop_demo1_winconfig.md)
+**Time to run: Approx 20min**
 
-## SSDOP Demo 2: Running Clair VM inside Docker container to Scan other Docker images
+### SDDOP Prerequisites
 
-- Time to run: Approx 10min
-- [Instructions](./docs/sddop_demo2_clair.md)
+Plain Vanilla Window10 64bit with Powershell v5.1 (& TLS1.2). 
 
-### Docker Headlines
+#### SDDOP Demo details 
+Win10 Education Preview, February 2020 build (build 19041.84)
 
-- ![Headlines](./docs/jpg/docker_headlines.jpg)
+### 1. Install BoxStarter, through elevated cmd prompt 
+
+```bash
+md c:\script\sddop && cd c:\script\sddop && powershell.exe -exec bypass -C "iex ((New-Object System.Net.WebClient).DownloadString('https://boxstarter.org/bootstrapper.ps1')); Get-Boxstarter -Force
+```
+
+### 2. Download CommandoVM Package
+
+```bash
+powershell -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (New-Object System.Net.WebClient).DownloadFile('https://github.com/fireeye/commando-vm/archive/master.zip', 'C:\script\master.zip');Expand-Archive -Path c:\script\master.zip -DestinationPath c:\script\sddop\Commando -Force "
+```
+
+### 3. Download SSDOP (SecureDockerDevOpsPipeline)
+
+```bash
+powershell -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; (New-Object System.Net.WebClient).DownloadFile('https://github.com/stefanwinkel/sddp/archive/master.zip', 'C:\script\master2.zip');$ProgressPreference='SilentlyContinue';Expand-Archive -Path c:\script\master2.zip -DestinationPath c:\script\sddop -Force " <NUL
+```
+
+### 4. Start the SDDOP install based upon modified CommandoVM
+
+```bash 
+cd c:\script\sddop\commando\commando-vm-master && powershell.exe -exec bypass .\install.ps1 -profile_file ..\..\SDDOP-master\sddop.json -nochecks 1 
+```
 
 ### References
 
