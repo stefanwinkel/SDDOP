@@ -15,7 +15,7 @@ We start from a plain Windows10 VM, and we see how can get quickly off the groun
 ## SDDOP Demo 1: Install Docker and various SecurityTools onto Windows10-64bit 
 
 - Time to run: Approx 20min
-- Description: Shows how we (and attackers) can quickly can spin up Docker containers in seconds, even from a plain Win10 environment. 
+- Description: Shows how you can quickly can spin up Docker containers in seconds, even from a plain Win10 environment. 
 - Pre-reqs: Plain Win10 64bit OS, with Powershell 5.1 (TLS1.2) enabled. Network access recommended.
 - Used in demo: Win10 Education Preview, February 2020 build (build 19041.84)
 
